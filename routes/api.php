@@ -26,5 +26,6 @@ Route::middleware('auth:sanctum')->group(function(){
 
 Route::post('/register', [UserAuthController::class, 'register']);
 Route::post('/login', [UserAuthController::class, 'login']);
+Route::post('createInsurance', [InsuranceController::class, 'createInsurance']);
 Route::post('testpay', [InsuranceController::class, 'testpay']);
 
