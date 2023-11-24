@@ -21,11 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function(){
-    Route::patch('/update-user', [UserAuthController::class,'updateProfile']);
+    Route::post('createInsurance', [InsuranceController::class, 'createInsurance']);
 });
 
+Route::get('/allTypeInsurence', [InsuranceController::class, 'allTypeInsurance']);
 Route::post('/register', [UserAuthController::class, 'register']);
 Route::post('/login', [UserAuthController::class, 'login']);
-Route::post('createInsurance', [InsuranceController::class, 'createInsurance']);
 Route::post('testpay', [InsuranceController::class, 'testpay']);
 

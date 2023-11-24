@@ -49,7 +49,7 @@ class UserAuthController extends Controller
         ]);
 
         // Retourner la réponse avec le jeton d'authentification
-        return response()->json(['message' => "Compte creer avec succes"], 201,);
+        return response()->json(['message' => "Compte creer avec succes"], 201);
     }
 
     public function login(Request $request)

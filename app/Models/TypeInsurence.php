@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * @property integer $id
@@ -16,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TypeInsurence extends Model
 {
+    use HasFactory;
     /**
      * The "type" of the auto-incrementing ID.
      * 

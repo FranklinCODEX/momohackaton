@@ -1,0 +1,20 @@
+
+Route::middleware('auth:sanctum')->group(function(){
+    // cette routes sont protogées donc il faut inclure le token pour que ça marche
+    Route::post('createInsurance', [InsuranceController::class, 'createInsurance']);
+    Resultats : ['message' => 'Assurance crée avec succès']
+});
+
+Route::get('/allTypeInsurence', [InsuranceController::class, 'allTypeInsurance']);
+Resultats : ['typeInsurences' => $TypeInsurences ] //listes des assurance disponnible j'ai creer déjà par defaut 3 assurances
+
+
+Route::post('/register', [UserAuthController::class, 'register']); 
+Resultats : ['message' => "Compte creer avec succes"]
+
+Route::post('/login', [UserAuthController::class, 'login']);
+Resultats : [
+            'message' => 'Connexion effectuer avec succes',
+            'token' => $token,
+            'user' => $user,
+        ]

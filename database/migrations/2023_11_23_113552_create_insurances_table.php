@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('insurance_type_id');
             $table->foreign('insurance_type_id')->references('id')->on('type_insurences');
-            $table->timestamp('date_limite');
+            $table->string('date_limite');
             $table->string('insuranceFrequency');
             $table->string('insuranceDuration');
             $table->string('renouvellement');

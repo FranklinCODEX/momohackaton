@@ -37,23 +37,29 @@ class InsuranceController extends Controller
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         } 
-        $tpyeInsurance = TypeInsurence::where('id', '=', $validator['insurance_type_id']);
+        // $tpyeInsurance = TypeInsurence::where('id', '=', $validator['insurance_type_id']);
 
-        $collection  = new Collection();
-        $resultat = $collection->requestToPay(1755964, $validator['phoneNumber'], $tpyeInsurance->prix);
-        $status = $collection->getTransactionStatus($resultat)['status'];
+        // $collection  = new Collection();
+        // $resultat = $collection->requestToPay(1755964, $validator['phoneNumber'], $tpyeInsurance->prix);
+        // $status = $collection->getTransactionStatus($resultat)['status'];
 
-        if($status == 'SUCCESSFUL')
-        {
-            // Créer un nouvel objet Insurance
-            $insurance = Insurance::create($request->all());
-        }
+        // if($status == 'SUCCESSFUL')
+        // {
+        //      Créer un nouvel objet Insurance
+        //     $insurance = Insurance::create($request->all());
+        // }
         
         //;NLT!+PB;0fj
         // Retourner la réponse avec le nouvel objet Insurance créé
-        return response()->json(['resultat' => $resultat, 'message' => 'Assurance crée avec succès'], 201);
+        $insurance = Insurance::create($request->all());
+        return response()->json(['message' => 'Assurance crée avec succès'], 201);
     }
 
+    public function allTypeInsurance()
+    {
+        $TypeInsurences = TypeInsurence::all();
+        return response()->json(['typeInsurences' => $TypeInsurences ], 201);
+    }
     public function testpay()
     {
         $collection  = new Collection();
