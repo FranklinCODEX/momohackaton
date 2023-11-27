@@ -17,7 +17,7 @@ class UserAuthController extends Controller
         $validator =  Validator::make($request->all(), [
             'nom' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Password::defaults()],
+            'password' => ['required'],
             'phoneNumber' => ['required'],
             'profileImagePath' => ['required'],
             'livingAddress' => ['required'],
