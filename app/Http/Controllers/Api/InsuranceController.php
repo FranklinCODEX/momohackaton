@@ -62,11 +62,17 @@ class InsuranceController extends Controller
     }
     public function testpay()
     {
-        $collection  = new Collection();
-        $resultat = $collection->requestToPay(1755964, 22995149987, 100);
-        $status = $collection->getTransactionStatus($resultat)['status'];
+        // $collection  = new Collection();
+        // $resultat = $collection->requestToPay(1755964, 22995149987, 100);
+        // $status = $collection->getTransactionStatus($resultat)['status'];
+
+        $data = [
+            'email' => "lawsongmai.com",
+            'nom' => "LAWSON",
+            'prenom' => "Jose Franklin",
+        ];
 
 
-        return response()->json([$resultat, $status ], 201);
+        return response()->json([$data], 201);
     }
 }
