@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
@@ -35,7 +36,8 @@ class UserAuthController extends Controller
 
         // Créer un nouvel utilisateur
         $user = User::create([
-            'nom' => $request->nom,
+
+            'fullName' => $request->nom,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'phoneNumber' => $request->phoneNumber,
@@ -67,11 +69,14 @@ class UserAuthController extends Controller
             ], 401);
         }
 
-        $token = $user->createToken('connexion-user')->plainTextToken;
+        $type = "admin" ? $user->email == "admin2023@gmail.com": $type="user";
+
+        $token = $user->createToken('connexionUtilisateur')->plainTextToken;
         return response()->json([
             'message' => 'Connexion effectuer avec succes',
             'token' => $token,
             'user' => $user,
+            'admin' => $type
         ]);
 
     }
@@ -79,5 +84,31 @@ class UserAuthController extends Controller
     public function logout() {
         auth()->logout();
         return response()->json(['message' => 'Utilisateur déconnecté avec succes']);
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = User::findOrFail(Auth::id());
+
+        $validatedData = $request->validate([
+            'nom' => "",
+            'email' => "",
+            'password' => "",
+            'phoneNumber' => "",
+            'profileImagePath' => "",
+            'livingAddress' => "",
+            'profession' => "",
+            'statusMatrimonial' => "",
+            'birthday' => "",
+            'nationalCardID' => "",
+            'revenuAnnuel' => "",
+        ]);
+        $user->password = Hash::make($request->password);
+        $user->update($validatedData);
+
+        return response()->json([
+            "message" => "Information modifier avec succès",
+            'user' => $user
+        ]);
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('insurances', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('insurance_type_id');
-            $table->foreign('insurance_type_id')->references('id')->on('type_insurences');
+            $table->foreign('insurance_type_id')->references('id')->on('type_insurances');
             $table->string('date_limite');
             $table->string('insuranceFrequency');
             $table->string('insuranceDuration');

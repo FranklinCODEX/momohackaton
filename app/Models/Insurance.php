@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -23,10 +24,11 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $revenuAnnuel
  * @property string $created_at
  * @property string $updated_at
- * @property TypeInsurence $typeInsurence
+ * @property TypeInsurance $typeInsurance
  */
 class Insurance extends Model
 {
+    use HasFactory;
     /**
      * The "type" of the auto-incrementing ID.
      * 
@@ -42,8 +44,8 @@ class Insurance extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function typeInsurence()
+    public function typeInsurance()
     {
-        return $this->belongsTo('App\Models\TypeInsurence', 'insurance_type_id');
+        return $this->belongsTo('App\Models\TypeInsurance', 'insurance_type_id');
     }
 }

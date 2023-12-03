@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $updated_at
  * @property Insurance[] $insurances
  */
-class TypeInsurence extends Model
+class TypeInsurance extends Model
 {
     use HasFactory;
     /**

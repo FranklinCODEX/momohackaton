@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Insurance;
 use Illuminate\Http\Request;
+use App\Models\TypeInsurance;
 use App\Http\Controllers\Controller;
-use App\Models\TypeInsurence;
+use Illuminate\Support\Facades\Auth;
 use Bmatovu\MtnMomo\Products\Collection;
 use Illuminate\Support\Facades\Validator;
 
@@ -57,22 +58,7 @@ class InsuranceController extends Controller
 
     public function allTypeInsurance()
     {
-        $TypeInsurences = TypeInsurence::all();
+        $TypeInsurences = TypeInsurance::all();
         return response()->json(['typeInsurences' => $TypeInsurences ], 201);
-    }
-    public function testpay()
-    {
-        // $collection  = new Collection();
-        // $resultat = $collection->requestToPay(1755964, 22995149987, 100);
-        // $status = $collection->getTransactionStatus($resultat)['status'];
-
-        $data = [
-            'email' => "lawsongmai.com",
-            'nom' => "LAWSON",
-            'prenom' => "Jose Franklin",
-        ];
-
-
-        return response()->json([$data], 201);
     }
 }

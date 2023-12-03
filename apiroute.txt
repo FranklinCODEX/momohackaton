@@ -1,20 +1,115 @@
+repository : https://github.com/FranklinCODEX/momohackaton.git
 
 Route::middleware('auth:sanctum')->group(function(){
     // cette routes sont protogées donc il faut inclure le token pour que ça marche
-    Route::post('createInsurance', [InsuranceController::class, 'createInsurance']);
-    Resultats : ['message' => 'Assurance crée avec succès']
+
+    //souscrire a une assurance
+    Route::post('/api/createInsurance', );
+    Body: [
+    	    'insurance_type_id' => ['required', 'integer'],
+            'date_limite' => ['required'],
+            'insuranceFrequency' => ['required', 'string'],
+            'insuranceDuration' => ['required', 'string'],
+            'renouvellement' => ['required', 'string'],
+            'dateRenouvellement' => ['required'],
+            'dateDebutContrat' => ['required'],
+            'fullName' => ['required', 'string'],
+            'email' => ['required', 'email'],
+            'phoneNumber' => ['required', 'string'],
+            'birthday' => ['required'],
+            'profession' => ['required', 'string'],
+            'statutionMatrimoniale' => ['required', 'string'],
+            'cardID' => ['required', 'string'],
+            'revenuAnnuel' => ['required', 'string'],
+    ]
+    Response : ['message' => 'Assurance crée avec succès']
+
+
+    //listes type d'assurance
+    Route::get("api/typeInsurance")
+    Response :[
+        typeInsurance => array
+    ]
+
+    //creer un type d'assurance 
+    Route::post("api/typeInsurance")
+    Body: [
+        'name' => ["required", "string"],
+        'description' => ["required", "string"],
+        'imagePath' => ["required", "string"],
+        'prix' => ["required", "integer"]
+    ]
+    Response: [
+        'message' => "Type d'assurance crée avec succès"
+    ]
+
+    //mettre a jour d'un type d'assurance
+    Route:patch("api/typeInsurance/{typeInsuranceId}")
+    Body: [
+        'name' => [ "string"],
+        'description' => [ "string"],
+        'imagePath' => [ "string"],
+        'prix' => [ "integer"]
+    ]
+    Response: [
+        'message'=>"Type d'assurance modifié succès",
+        "typeInsurance" => array
+    ]
+
+    //supprimer un type d'assurance
+    Route:delete("api/typeInsurance/{typeInsuranceId}")
+    Response: [
+        'message'=>"Type d'assurance supprimé avec succès"
+    ]
+
+    //mettre a jour son profileImagePath
+    Route:patch("/api/updateProfile")
+    Body: [
+            'nom' => "string",
+            'email' => "string",
+            'password' => "string",
+            'phoneNumber' => "string",
+            'profileImagePath' => "string",
+            'livingAddress' => "string",
+            'profession' => "string",
+            'statusMatrimonial' => "string",
+            'birthday' => "string",
+            'nationalCardID' => "string",
+            'revenuAnnuel' => "string",
+    ]
+    Response: [
+        "message" => "Information modifier avec succès",
+        'user' => array
+    ]
+
 });
 
-Route::get('/allTypeInsurence', [InsuranceController::class, 'allTypeInsurance']);
-Resultats : ['typeInsurences' => $TypeInsurences ] //listes des assurance disponnible j'ai creer déjà par defaut 3 assurances
+Route::get('api/allTypeInsurence',);
+Response : ['typeInsurences' => array ] //listes des assurance disponnible j'ai creer déjà par defaut 3 assurances
 
 
-Route::post('/register', [UserAuthController::class, 'register']); 
-Resultats : ['message' => "Compte creer avec succes"]
+Route::post('/register',); 
+Body: [
+	    'password' => 'required|email|string',
+            'phoneNumber' => 'required|email|string',
+            'profileImagePath' => 'required|email|string',
+            'livingAddress' => 'required|email|string',
+            'profession' => 'required|email|string',
+            'statusMatrimonial' => 'required|email|string',
+            'birthday' => 'required|email|string',
+            'nationalCardID' => 'required|email|string',
+            'revenuAnnuel' => 'required|email|string',
+]
+Response : ['message' => "Compte creer avec succes"]
 
-Route::post('/login', [UserAuthController::class, 'login']);
-Resultats : [
+Route::post('/login');
+Body : [
+	'email' => string,
+    'password' => string,
+]
+Response : [
             'message' => 'Connexion effectuer avec succes',
-            'token' => $token,
-            'user' => $user,
+            'token' => string,
+            'user' => array,
+            'admin' => boolean
         ]
