@@ -65,7 +65,7 @@ Route::middleware('auth:sanctum')->group(function(){
     //mettre a jour son profileImagePath
     Route:patch("/api/updateProfile")
     Body: [
-            'nom' => "string",
+            'fullName' => "string",
             'email' => "string",
             'password' => "string",
             'phoneNumber' => "string",
@@ -90,15 +90,17 @@ Response : ['typeInsurences' => array ] //listes des assurance disponnible j'ai 
 
 Route::post('/register',); 
 Body: [
-	    'password' => 'required|email|string',
-            'phoneNumber' => 'required|email|string',
-            'profileImagePath' => 'required|email|string',
-            'livingAddress' => 'required|email|string',
-            'profession' => 'required|email|string',
-            'statusMatrimonial' => 'required|email|string',
-            'birthday' => 'required|email|string',
-            'nationalCardID' => 'required|email|string',
-            'revenuAnnuel' => 'required|email|string',
+	    'fullName' => string|required,
+        'email' => string|required,
+        'password' => string|required,
+        'phoneNumber' => string|required,
+        'profileImagePath' => string|required,
+        'livingAddress' => string|required,
+        'profession' => string|required,
+        'statusMatrimonial' => string|required,
+        'birthday' => string|required,
+        'nationalCardID' => string|required,
+        'revenuAnnuel' => string|required,
 ]
 Response : ['message' => "Compte creer avec succes"]
 
