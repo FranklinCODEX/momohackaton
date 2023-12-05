@@ -1,7 +1,7 @@
 repository : https://github.com/FranklinCODEX/momohackaton.git
 
 Route::middleware('auth:sanctum')->group(function(){
-    // cette routes sont protogées donc il faut inclure le token pour que ça marche
+    // ces routes sont protégées donc il faut inclure le token dans la requette pour que ça marche
 
     //souscrire a une assurance
     Route::post('/api/createInsurance', );
@@ -88,7 +88,7 @@ Route::get('api/allTypeInsurence',);
 Response : ['typeInsurences' => array ] //listes des assurance disponnible j'ai creer déjà par defaut 3 assurances
 
 
-Route::post('/register',); 
+Route::post('api/register',); 
 Body: [
 	    'fullName' => string|required,
         'email' => string|required,
@@ -104,7 +104,7 @@ Body: [
 ]
 Response : ['message' => "Compte creer avec succes"]
 
-Route::post('/login');
+Route::post('api/login');
 Body : [
 	'email' => string,
     'password' => string,

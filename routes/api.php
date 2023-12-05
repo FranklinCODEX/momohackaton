@@ -19,7 +19,7 @@ use App\Http\Controllers\Api\TypeInsuranceController;
 
 Route::middleware('auth:sanctum')->group(function(){
     Route::patch('/updateProfile', [UserAuthController::class, 'updateProfile']);
-    Route::post('createInsurance', [InsuranceController::class, 'createInsurance']);
+    Route::post('/createInsurance', [InsuranceController::class, 'createInsurance']);
     Route::apiResource('/typeInsurance', TypeInsuranceController::class);
 });
 

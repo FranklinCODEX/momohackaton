@@ -20,13 +20,13 @@ class UserAuthController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required'],
             'phoneNumber' => ['required'],
-            'profileImagePath' => ['required'],
-            'livingAddress' => ['required'],
-            'profession' => ['required'],
-            'statusMatrimonial' => ['required'],
-            'birthday' => ['required'],
-            'nationalCardID' => ['required'],
-            'revenuAnnuel' => ['required'],
+            'profileImagePath' => '',
+            'livingAddress' => "",
+            'profession' => "",
+            'statusMatrimonial' => "",
+            'birthday' => "",
+            'nationalCardID' => "",
+            'revenuAnnuel' => "",
         ]);
         
         // Vérifier si la validation a échoué
@@ -91,7 +91,7 @@ class UserAuthController extends Controller
         $user = User::findOrFail(Auth::id());
 
         $validatedData = $request->validate([
-            'nom' => "",
+            'fullname' => "",
             'email' => "",
             'password' => "",
             'phoneNumber' => "",
