@@ -56,9 +56,15 @@ class InsuranceController extends Controller
         return response()->json(['message' => 'Assurance crée avec succès'], 201);
     }
 
-    public function allTypeInsurance()
+    public function allTypeInsurance(Request $request)
     {
         $TypeInsurences = TypeInsurance::all();
         return response()->json(['typeInsurences' => $TypeInsurences ], 201);
+    }
+
+    public function fetchInsurance(Request $request)
+    {
+        $insurances = Insurance::where('user_id', '=', Auth::id());
+        return response()->json(['insurences' => $insurances ], 201);
     }
 }

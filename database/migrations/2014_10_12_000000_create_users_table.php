@@ -21,12 +21,12 @@ return new class extends Migration
             $table->string('password');
             $table->string('phoneNumber');
             $table->string('profileImagePath')->nullable();
-            $table->string('livingAddress');
-            $table->string('profession');
-            $table->string('statusMatrimonial');
-            $table->string('birthday');
-            $table->string('nationalCardID');
-            $table->string('revenuAnnuel');
+            $table->string('livingAddress')->nullable();
+            $table->string('profession')->nullable();
+            $table->string('statusMatrimonial')->nullable();
+            $table->string('birthday')->nullable();
+            $table->string('nationalCardID')->nullable();
+            $table->string('revenuAnnuel')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::patch('/updateProfile', [UserAuthController::class, 'updateProfile']);
     Route::post('/createInsurance', [InsuranceController::class, 'createInsurance']);
     Route::apiResource('/typeInsurance', TypeInsuranceController::class);
+    Route::get('/fetchInsurance', [InsuranceController::class, 'fetchInsurance']);
 });
 
 Route::get('/allTypeInsurence', [InsuranceController::class, 'allTypeInsurance']);
