@@ -76,7 +76,6 @@ class UserAuthController extends Controller
             'message' => 'Connexion effectuer avec succes',
             'token' => $token,
             'user' => $user,
-            'admin' => $type
         ]);
 
     }

@@ -38,5 +38,5 @@ class User extends Authenticatable
     /**
      * @var array
      */
-    protected $fillable = ['fullName', 'email', 'email_verified_at', 'password', 'phoneNumber', 'profileImagePath', 'livingAddress', 'profession', 'statusMatrimonial', 'birthday', 'nationalCardID', 'revenuAnnuel', 'remember_token', 'created_at', 'updated_at'];
+    protected $fillable = ['fullName', 'email', 'email_verified_at', 'password', 'phoneNumber', 'profileImagePath', 'livingAddress', 'profession', 'statusMatrimonial', 'birthday', 'nationalCardID', 'revenuAnnuel', 'remember_token', 'created_at', 'updated_at', 'etat'];
 }

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('nationalCardID')->nullable();
             $table->string('revenuAnnuel')->nullable();
             $table->rememberToken();
+            $table->boolean('admin')->default(false);
             $table->timestamps();
         });
     }

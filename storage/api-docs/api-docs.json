@@ -1,0 +1,67 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Application de don en ligne",
+        "description": "API du projet de don en ligne ",
+        "contact": {
+            "name": "ZINMONSE Sylvie",
+            "email": "zinmonsesylvie@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/inscription": {
+            "post": {
+                "tags": [
+                    "Authentification"
+                ],
+                "summary": "Inscription d'un nouvel utilisateur",
+                "operationId": "ce131f8f144d80a88b5e8cf7ff868e3a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nom": {
+                                        "description": "Le nom de l'utilisateur",
+                                        "type": "string"
+                                    },
+                                    "prenom": {
+                                        "description": "Le prénom de l'utilisateur",
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "description": "L'adresse email de l'utilisateur",
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "password": {
+                                        "description": "Le mot de passe de l'utilisateur",
+                                        "type": "string"
+                                    },
+                                    "role": {
+                                        "description": "Le rôle de l'utilisateur (ex. : donateur, admin)",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Utilisateur enregistré avec succès"
+                    },
+                    "400": {
+                        "description": "Erreurs de validation"
+                    },
+                    "500": {
+                        "description": "Erreur interne du serveur"
+                    }
+                }
+            }
+        }
+    }
+}

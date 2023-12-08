@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserAuthController;
 use App\Http\Controllers\Api\InsuranceController;
-use App\Http\Controllers\Api\TypeInsuranceController;
+use App\Http\Controllers\TypeInsuranceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,6 @@ use App\Http\Controllers\Api\TypeInsuranceController;
 Route::middleware('auth:sanctum')->group(function(){
     Route::patch('/updateProfile', [UserAuthController::class, 'updateProfile']);
     Route::post('/createInsurance', [InsuranceController::class, 'createInsurance']);
-    Route::apiResource('/typeInsurance', TypeInsuranceController::class);
     Route::get('/fetchInsurance', [InsuranceController::class, 'fetchInsurance']);
 });
 

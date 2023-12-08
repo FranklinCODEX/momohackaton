@@ -31,37 +31,6 @@ Route::middleware('auth:sanctum')->group(function(){
         typeInsurance => array
     ]
 
-    //creer un type d'assurance 
-    Route::post("api/typeInsurance")
-    Body: [
-        'name' => ["required", "string"],
-        'description' => ["required", "string"],
-        'imagePath' => ["required", "string"],
-        'prix' => ["required", "integer"]
-    ]
-    Response: [
-        'message' => "Type d'assurance crée avec succès"
-    ]
-
-    //mettre a jour d'un type d'assurance
-    Route:patch("api/typeInsurance/{typeInsuranceId}")
-    Body: [
-        'name' => [ "string"],
-        'description' => [ "string"],
-        'imagePath' => [ "string"],
-        'prix' => [ "integer"]
-    ]
-    Response: [
-        'message'=>"Type d'assurance modifié succès",
-        "typeInsurance" => array
-    ]
-
-    //supprimer un type d'assurance
-    Route:delete("api/typeInsurance/{typeInsuranceId}")
-    Response: [
-        'message'=>"Type d'assurance supprimé avec succès"
-    ]
-
     //mettre a jour son profileImagePath
     Route:patch("/api/updateProfile")
     Body: [
@@ -100,13 +69,13 @@ Body: [
         'email' => string|required,
         'password' => string|required,
         'phoneNumber' => string|required,
-        'profileImagePath' => string|required,
-        'livingAddress' => string|required,
-        'profession' => string|required,
-        'statusMatrimonial' => string|required,
-        'birthday' => string|required,
-        'nationalCardID' => string|required,
-        'revenuAnnuel' => string|required,
+        'profileImagePath' => string,
+        'livingAddress' => string,
+        'profession' => string,
+        'statusMatrimonial' => string,
+        'birthday' => string,
+        'nationalCardID' => string,
+        'revenuAnnuel' => string,
 ]
 Response : ['message' => "Compte creer avec succes"]
 

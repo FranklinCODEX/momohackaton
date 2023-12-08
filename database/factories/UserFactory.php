@@ -17,19 +17,21 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $status = ["Célibataire", "Marié", "Fiancé", "Veuve", "Veuf"];
         return [
-            'fullName' => 'Admin User',
-            'email' => 'admin2023@gmail.com',
+            'fullName' => fake()->name() . '    ' . fake()->lastName(),
+            'email' => fake()->email(),
             'password' => "$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
-            'phoneNumber' => "22966149987",
+            'phoneNumber' => fake()->phoneNumber(),
             'profileImagePath' => fake()->imageUrl(),
             'livingAddress' => fake()->address(),
             'profession' => fake()->jobTitle(),
-            'statusMatrimonial' => "Célibataire",
+            'statusMatrimonial' =>  fake()->randomElement($status),
             'birthday' => fake()->date(),
             'nationalCardID' => fake()->randomNumber(),
             'revenuAnnuel' => fake()->numberBetween(),
             'remember_token' => Str::random(10),
+            'admin' => false
         ];
     }
 

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TypeInsuranceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::middleware(['admin-access'])->group(function(){
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::resource('/typeInsurance', TypeInsuranceController::class);
+});
+Route::get('/login', [AdminController::class, 'login'])->name('login');
+Route::post('/connect', [AdminController::class, 'connect'])->name('connect');
+Route::post('/logout', [AdminController::class, 'logout'])->name('logout');

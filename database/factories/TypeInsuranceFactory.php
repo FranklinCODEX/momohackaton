@@ -18,7 +18,7 @@ class TypeInsuranceFactory extends Factory
     {
         $elements = ["Santé", "Logement", "Subsistance"];
         return [
-            'name' => fake()->randomElement($elements),
+            'name' => fake()->unique()->randomElement($elements),
             'description' => fake()->text(50),
             'imagePath' => fake()->imageUrl(),
             'prix' => fake()->numberBetween()

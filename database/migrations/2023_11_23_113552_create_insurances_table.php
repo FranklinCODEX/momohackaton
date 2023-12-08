@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('statutionMatrimoniale');
             $table->string('cardID');
             $table->string('revenuAnnuel');
+            $table->string('etat')->default("En cours");
             $table->timestamps();
         });
     }

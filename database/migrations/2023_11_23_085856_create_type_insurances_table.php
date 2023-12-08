@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->string('imagePath');
+            $table->string('imagePath')->nullable();
             $table->integer('prix');
             $table->timestamps();
         });
