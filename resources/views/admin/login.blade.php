@@ -9,18 +9,26 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href=" {{ asset('plugins/fontawesome-free/css/all.min.css') }} ">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href=" {{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }} ">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href=" {{ asset('diste/css/adminlte.min.css') }} ">
 </head>
-<body class="hold-transition login-page">
+<style>
+  .test{
+    background-image: url('{{ asset('diste/img/mur.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+</style>
+<body class="login-page test">
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="index2.html" class="h1"><b>Educ</b>Gard</a>
+      <a href="#" class="h1"><b>Educ</b>Gard</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Connectez-vous pour commencer votre session</p>
@@ -64,10 +72,10 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src=" {{ asset('plugins/jquery/jquery.min.js') }} "></script>
 <!-- Bootstrap 4 -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src=" {{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }} "></script>
 <!-- AdminLTE App -->
-<script src="dist/js/adminlte.min.js"></script>
+<script src=" {{ asset('diste/js/adminlte.min.js') }} "></script>
 </body>
 </html>

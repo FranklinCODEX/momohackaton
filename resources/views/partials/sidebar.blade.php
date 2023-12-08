@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img width="80" height="45" src="{{ asset('dist/img/EduGuard white.png') }}" alt="AdminLTE Logo" style="opacity: .8">
+      <img width="80" height="45" src="{{ asset('diste/img/EduGuard white.png') }}" alt="AdminLTE Logo" style="opacity: .8">
       <span class="brand-text font-weight-light">{{ Auth::user()->fullName }}</span>
     </a>
 

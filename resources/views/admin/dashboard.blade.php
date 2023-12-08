@@ -9,8 +9,8 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
-                            <p>Déjà assuré</p>
+                            <h3>{{ $acceptedInsurance }}</h3>
+                            <p>Déjà assurés</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
@@ -35,7 +35,7 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3>{{ $countedUser }}</h3>
 
                             <p>Nombre d'inscrit sur la plateforme</p>
                         </div>

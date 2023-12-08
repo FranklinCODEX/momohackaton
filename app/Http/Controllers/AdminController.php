@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Insurance;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +19,10 @@ class AdminController extends Controller
     public function dashboard()
     {
         $users = User::where('admin', '=', false)->get();
+        $countedUser = User::where('admin', '=', false)->count();
+        $acceptedInsurance = Insurance::where('etat', '=', 'valider')->count();
 
-        return view('admin.dashboard', compact('users'));
+        return view('admin.dashboard', compact('users', 'countedUser', 'acceptedInsurance'));
     }
 
     public function connect(Request $request)
