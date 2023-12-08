@@ -1,4 +1,0 @@
-path pour le login : /login [
-    email: admin2023@gmail.com
-    password : password
-] vous serai rediriger vers le dashboard
