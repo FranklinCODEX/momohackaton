@@ -24,8 +24,8 @@ class AdminAuthMiddleware
             {
                 return $next($request);
             }
-        }else{
-            return Redirect::route('login');
         }
+        
+        return Redirect::route('login');
     }
 }
