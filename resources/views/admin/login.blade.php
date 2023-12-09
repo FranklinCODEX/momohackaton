@@ -28,7 +28,7 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="#" class="h1"><b>Educ</b>Gard</a>
+      <a href="#" class="h1"><b>Edu</b>Gard</a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Connectez-vous pour commencer votre session</p>
